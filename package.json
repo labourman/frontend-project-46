@@ -4,7 +4,8 @@
   "description": "[![Actions Status](https://github.com/labourman/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/labourman/frontend-project-46/actions)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "bin": {
     "gendiff": "./bin/gendiff.js"
@@ -23,6 +24,13 @@
   "type": "module",
   "dependencies": {
     "commander": "^12.1.0",
+    "js-yaml": "^4.1.0",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "eslint": "^9.3.0",
+    "globals": "^15.3.0",
+    "jest": "^29.7.0"
   }
 }

@@ -1,17 +1,10 @@
 #!/usr/bin/env node
-
 import { Command } from 'commander';
-import { readFileSync } from 'fs';
-import genDiff from '../src/genDiff.mjs'; // Используем .mjs расширение
 import path from 'path';
+import parse from '../src/parsers.js';
+import genDiff from '../src/genDiff.mjs';
 
 const program = new Command();
-
-const parse = (filepath) => {
-  const absolutePath = path.resolve(filepath);
-  const content = readFileSync(absolutePath, 'utf-8');
-  return JSON.parse(content);
-};
 
 program
   .version('1.0.0')
@@ -19,8 +12,10 @@ program
   .option('-f, --format [type]', 'output format')
   .arguments('<filepath1> <filepath2>')
   .action((filepath1, filepath2) => {
-    const data1 = parse(filepath1);
-    const data2 = parse(filepath2);
+    const absolutePath1 = path.resolve(filepath1);
+    const absolutePath2 = path.resolve(filepath2);
+    const data1 = parse(absolutePath1);
+    const data2 = parse(absolutePath2);
     const diff = genDiff(data1, data2);
     console.log(diff);
   })
