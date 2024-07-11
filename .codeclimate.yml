@@ -1,0 +1,11 @@
+version: "2"
+ratings:
+  paths:
+    - "gendiff.js"
+test_reporter:
+  id: codeclimate
+  path_prefix: ""
+  input:
+    type: "lcov"
+    path: "coverage/lcov.info"
+    exclude: []
