@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
-    "coverage": "jest --coverage && ./cc-test-reporter format-coverage --input-type lcov --output coverage/codeclimate.json && ./cc-test-reporter upload-coverage"
+     "coverage": "jest --coverage && ./cc-test-reporter format-coverage --input-type lcov --output coverage/codeclimate.json && ./cc-test-reporter upload-coverage"
   },
   "author": "",
   "license": "ISC",

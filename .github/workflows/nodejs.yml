@@ -35,7 +35,7 @@ jobs:
           curl -L https://github.com/codeclimate/test-reporter/releases/latest/download/test-reporter-linux-amd64 -o ./cc-test-reporter
           chmod +x ./cc-test-reporter
       - name: Check cc-test-reporter
-        run: file ./cc-test-reporter
+        run: ls -lh ./cc-test-reporter  # Проверка, что файл существует и имеет правильные права доступа
       - name: Generate coverage report
         run: |
           ./cc-test-reporter before-build
