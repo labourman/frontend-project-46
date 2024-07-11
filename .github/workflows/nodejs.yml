@@ -30,6 +30,11 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npm test
+      - name: Install Code Climate Test Reporter
+        run: |
+          curl -L https://github.com/codeclimate/test-reporter/releases/latest/download/test-reporter-linux-amd64 -o cc-test-reporter
+          chmod +x cc-test-reporter
+          sudo mv cc-test-reporter /usr/local/bin/
       - name: Generate coverage report
         run: npm run coverage
         env:
