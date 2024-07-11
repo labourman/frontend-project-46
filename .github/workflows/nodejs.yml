@@ -35,12 +35,9 @@ jobs:
           curl -L https://github.com/codeclimate/test-reporter/releases/latest/download/test-reporter-linux-amd64 -o ./cc-test-reporter
           chmod +x ./cc-test-reporter
       - name: Generate coverage report
-        run: ./cc-test-reporter before-build
-      - name: Run tests and collect coverage
-        run: npm run coverage
-        env:
-          CODECLIMATE_REPO_TOKEN: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
-      - name: After build
-        run: ./cc-test-reporter after-build --exit-code $?
+        run: |
+          ./cc-test-reporter before-build
+          npm run coverage
+          ./cc-test-reporter after-build --exit-code $?
         env:
           CODECLIMATE_REPO_TOKEN: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
