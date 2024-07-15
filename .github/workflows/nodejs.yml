@@ -33,8 +33,8 @@ jobs:
       - name: Generate coverage report
         run: npm run coverage
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
       - name: Upload coverage to Code Climate
         run: npx codeclimate-test-reporter < coverage/lcov.info
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
