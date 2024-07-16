@@ -5,10 +5,18 @@ const fs = require('fs');
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-test('gendiff flat json', () => {
-  const expected = readFile('expected_flat.txt').trim();
-  const file1 = getFixturePath('file1.json');
-  const file2 = getFixturePath('file2.json');
+test('gendiff recursive json', () => {
+  const expected = readFile('expected_recursive.txt').trim();
+  const file1 = getFixturePath('file1_recursive.json');
+  const file2 = getFixturePath('file2_recursive.json');
+  const result = execFileSync('node', ['gendiff.js', file1, file2]).toString().trim();
+  expect(result).toBe(expected);
+});
+
+test('gendiff recursive yaml', () => {
+  const expected = readFile('expected_recursive.txt').trim();
+  const file1 = getFixturePath('file1_recursive.yml');
+  const file2 = getFixturePath('file2_recursive.yml');
   const result = execFileSync('node', ['gendiff.js', file1, file2]).toString().trim();
   expect(result).toBe(expected);
 });
