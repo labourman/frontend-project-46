@@ -3,7 +3,7 @@
 const { program } = require('commander');
 const parseFile = require('./src/parsers');
 const buildDiff = require('./src/diff');
-const formatStylish = require('./src/formatters/stylish');
+const format = require('./src/formatters');
 const packageJson = require('./package.json');
 
 program
@@ -16,15 +16,7 @@ program
     const data2 = parseFile(filepath2);
     const diff = buildDiff(data1, data2);
 
-    let output;
-    switch (options.format) {
-      case 'stylish':
-        output = formatStylish(diff);
-        break;
-      // другие форматеры могут быть добавлены здесь
-      default:
-        output = formatStylish(diff);
-    }
+    const output = format(diff, options.format);
     console.log(output);
   });
 
