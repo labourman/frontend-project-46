@@ -21,10 +21,10 @@ test('gendiff recursive yaml', () => {
   expect(result).toBe(expected);
 });
 
-test('gendiff plain format', () => {
-  const expected = readFile('expected_plain.txt').trim();
+test('gendiff json format', () => {
   const file1 = getFixturePath('file1_recursive.json');
   const file2 = getFixturePath('file2_recursive.json');
-  const result = execFileSync('node', ['gendiff.js', '--format', 'plain', file1, file2]).toString().trim();
+  const result = execFileSync('node', ['gendiff.js', '--format', 'json', file1, file2]).toString().trim();
+  const expected = JSON.stringify(require(getFixturePath('expected_recursive.json')), null, 2);
   expect(result).toBe(expected);
 });
