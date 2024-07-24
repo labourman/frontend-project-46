@@ -1,17 +1,17 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/labourman/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/labourman/frontend-project-46/actions)",
-  "main": "gendiff.js",
+  "description": "Вычислитель отличий – программа, определяющая разницу между двумя структурами данных. Её возможности : Поддержка разных входных форматов: yaml, json и Генерация отчета в виде plain text, stylish и json",
+  "main": "src/index.js",
   "bin": {
-    "gendiff": "./gendiff.js"
+    "gendiff": "./bin/gendiff.js"
   },
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
      "coverage": "jest --coverage && ./cc-test-reporter format-coverage --input-type lcov --output coverage/codeclimate.json && ./cc-test-reporter upload-coverage"
   },
-  "author": "",
+  "author": "Kolesov Daniil",
   "license": "ISC",
   "dependencies": {
     "commander": "^12.1.0",
